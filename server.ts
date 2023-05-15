@@ -3,7 +3,7 @@ import server from "./app";
 import dotenv from "dotenv";
 
 // port
-const PORT = process.env.PORT || 8080;
+const PORT: number | string = process.env.PORT || 8080;
 
 // dbConnect
 const { connectDB } = require("./config/dbConnect");

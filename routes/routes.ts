@@ -1,9 +1,9 @@
-import express from "express";
+import express, { Application, NextFunction, Request, Response } from "express";
 
-const router = express.Router();
+const router: Application = express.Router();
 
 // home route
-router.get("/", (req, res) => {
+router.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     title: "Home",
     para: "This is Home page",
@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 });
 
 // about route
-router.get("/about", (req, res) => {
+router.get("/about", (req: Request, res: Response) => {
   res.status(200).json({
     title: "About",
     para: "This is About page",
@@ -20,7 +20,7 @@ router.get("/about", (req, res) => {
 });
 
 // not found route
-router.get("*", (req, res) => {
+router.get("*", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).json({
     title: "404 !!!",
     para: "Page has not found",

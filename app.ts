@@ -1,9 +1,9 @@
 // required file
-import express from "express";
+import express, { Application } from "express";
 import cors from "cors";
 
 // express instanse create
-const app = express();
+const app: Application = express();
 
 // middleware
 app.use(cors());
