@@ -1,6 +1,6 @@
 // required file
-const server = require("./app");
-const dotenv = require("dotenv");
+import server from "./app";
+import dotenv from "dotenv";
 
 // port
 const PORT = process.env.PORT || 8080;

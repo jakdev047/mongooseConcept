@@ -1,15 +1,17 @@
 // required file
-const express = require("express");
+import express from "express";
+import cors from "cors";
 
 // express instanse create
 const app = express();
 
 // middleware
+app.use(cors());
 
 /* ============ Route ============= */
-const indexRoute = require("./routes/routes");
+import indexRoute from "./routes/routes";
 
 // base route
 app.use(indexRoute);
 
-module.exports = app;
+export default app;
