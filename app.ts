@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 /* ============ Route ============= */
-import userRoute from "./routes/userRoutes";
+import userRoute from "./modules/user/user.routes";
 import indexRoute from "./routes/routes";
 
 // user

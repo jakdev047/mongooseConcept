@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createUserToDB } from "../service/user";
+import { createUserToDB } from "./user.services";
 
 export const createUser = async (req: Request, res: Response) => {
   const data = req.body;
