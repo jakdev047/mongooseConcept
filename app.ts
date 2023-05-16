@@ -8,6 +8,9 @@ const app: Application = express();
 // middleware
 app.use(cors());
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 /* ============ Route ============= */
 import indexRoute from "./routes/routes";
 
