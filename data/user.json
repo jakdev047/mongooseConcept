@@ -1,0 +1,17 @@
+{
+  "id": "101",
+  "role": "student",
+  "password": "123456",
+  "name": {
+    "firstName": "Jubayer",
+    "middleName": "Alam",
+    "lastName": "Khan"
+  },
+  "dateOfBirth": "01-01-1900",
+  "gender": "male",
+  "email": "jubayer@test.com",
+  "contactNo": "1234567890",
+  "emergencyContactNo": "9876543210",
+  "presentAddress": "Bangladesh",
+  "permanentAddress": "Bangladesh"
+}

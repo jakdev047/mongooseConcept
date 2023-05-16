@@ -4,8 +4,6 @@ const router: Application = express.Router();
 
 // home route
 router.get("/", (req: Request, res: Response) => {
-  // insert
-
   res.status(200).json({
     title: "Home",
     para: "This is Home page",
