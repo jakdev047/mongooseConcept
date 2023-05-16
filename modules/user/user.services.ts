@@ -17,3 +17,12 @@ export const getUsersFromDB = async (): Promise<IUser[]> => {
 
   return users;
 };
+
+export const getUserByIdFromDB = async (
+  payload: string
+): Promise<IUser | null> => {
+  // get by Id
+  const user = await User.findOne({ id: payload });
+
+  return user;
+};
