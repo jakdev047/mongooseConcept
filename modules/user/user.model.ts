@@ -68,6 +68,6 @@ userSchema.method("fullName", function fullName() {
   return this.name.firstName + " " + this.name.lastName;
 });
 
-const User = model<IUser>("User", userSchema);
+const User = model<IUser, UserModel>("User", userSchema);
 
 export default User;
