@@ -26,3 +26,9 @@ export const getUserByIdFromDB = async (
 
   return user;
 };
+
+export const getAdminUsersFromDB = async () => {
+  const admins = await User.getAdminUsers();
+
+  return admins;
+};
