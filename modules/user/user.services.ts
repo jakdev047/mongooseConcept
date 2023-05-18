@@ -32,3 +32,7 @@ export const getAdminUsersFromDB = async () => {
 
   return admins;
 };
+
+/*
+  save() => Mongoose method => data validate => schema
+*/
