@@ -5,7 +5,14 @@
   database select => use node_crud
 
   all data => db.getCollection('users').find().limit(1)
-              db.users.find({}).limit(1)  
+              db.users.find({}).limit(1) 
+              
+  Oparator
+    - Comparison: $eq $ne $gt $gte $lt $lte $in $nin
+
+    - Logical: $and $or $not
+
+    - Element: $exists $type $regex
 
   same property check => explicit
   others property check => implicit
@@ -64,7 +71,7 @@
 
 /*
   Logical Query Operator
-  ===========================
+  =======================
 
   01. $and
 
@@ -99,6 +106,38 @@
               age: { $lte: 18}
           })
           .project({ age: 1, name: 1, gender: 1 })
+          .sort({ age: 1 })
+*/
+
+/*
+  Element Query Operator
+  =======================
+
+  01. $exists
+
+        db.practice
+          .find({
+              age: { $exists: true }
+          })
+          .project({ age: 1, name: 1, gender: 1 })
+          .sort({ age: 1 })
+  
+  02. $type
+
+        // data type
+        db.practice
+          .find({
+              age: { $type: 'string' }
+          })
+          .project({ age: 1, name: 1, phone: 1 })
+          .sort({ age: 1 })
+
+        // array length check
+        db.practice
+          .find({
+              skills: { $size: 0 }
+          })
+          .project({ age: 1, name: 1, skills: 1 })
           .sort({ age: 1 })
 */
 
