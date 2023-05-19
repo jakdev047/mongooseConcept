@@ -7,11 +7,13 @@
   all data => db.getCollection('users').find().limit(1)
               db.users.find({}).limit(1)  
 
+  same property check => explicit
+  others property check => implicit
 */
 
 /*
-  Operator
-  ============
+  Comparison Query Operator
+  ===========================
 
   01. $eq Specifies equality condition
 
@@ -61,5 +63,47 @@
 */
 
 /*
+  Logical Query Operator
+  ===========================
+
+  01. $and
+
+        db.practice
+          .find({
+              $and: [
+                  { gender: "Female" },
+                  { age: { $lt: 30 } },
+                  { "skills.name": "JAVASCRIPT" }
+              ]
+          })
+          .project({ age: 1, name: 1, gender: 1, "skills.name": 1 })
+          .sort({ age: 1 })
+
+  02. $or
+
+        db.practice
+          .find({
+              $or: [
+                  { country: "France" },
+                  { age: { $lt: 10 } }
+              ]
+          })
+          .project({ age: 1, name: 1, gender: 1, country: 1 })
+          .sort({ age: 1 })
+
+  03. $not  
+
+        db.practice
+          .find({
+              gender: { $not: { $regex: / ^ Male * / } },
+              age: { $lte: 18}
+          })
+          .project({ age: 1, name: 1, gender: 1 })
+          .sort({ age: 1 })
+*/
+
+/*
   formate => alt shift f
+
+  run => ctrl Enter
 */
