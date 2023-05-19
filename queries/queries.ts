@@ -12,7 +12,9 @@
 
     - Logical: $and $or $not
 
-    - Element: $exists $type $regex
+    - Element: $exists $type
+
+    - Array: $size, $elemMatch, $all
 
   same property check => explicit
   others property check => implicit
@@ -139,6 +141,55 @@
           })
           .project({ age: 1, name: 1, skills: 1 })
           .sort({ age: 1 })
+*/
+
+/*
+  Array Query Operator
+  =======================
+
+  01. $size
+
+        db.practice
+          .find({
+              skills: { $size: 0 }
+          })
+          .project({ age: 1, name: 1, skills: 1 })
+          .sort({ age: 1 })
+
+  02. element position, $all & $and
+
+        db.practice
+          .find({
+              // interests: "Travelling"
+              // "interests.0": "Travelling"
+              // interests: ["Cooking", "Travelling", "Reading"]
+              // interests: { $all: ["Cooking", "Travelling", "Reading"] }
+              $and: [
+                  { "interests": "Cooking" },
+                  { "interests": "Travelling" },
+                  { "interests": "Reading" },
+              ]
+          })
+          .project({ name: 1, interests: 1 })
+          .sort({ age: 1 })
+
+    03. $elemMatch
+
+        db.practice
+          .find({
+              // skills: {
+              //     name: 'JAVASCRIPT',
+              //     level: "Expert",
+              //     isLearning: true
+              // }
+
+              skills: {
+                  $elemMatch: {
+                      name: 'JAVASCRIPT',
+                      level: "Expert"
+                  }
+              }
+          })
 */
 
 /*
