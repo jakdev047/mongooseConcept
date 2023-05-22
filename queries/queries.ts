@@ -206,7 +206,7 @@
               }
           )
 
-  01. $addToSet
+  02. $addToSet
 
         db.practice
           .updateOne(
@@ -223,6 +223,8 @@
                   $addToSet:  { interests: {$each: ["Travelling", "Swimming"] } }
               }
           )
+
+  03. $push
 
         db.practice
           .updateOne(
