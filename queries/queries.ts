@@ -16,7 +16,7 @@
 
     - Array: $size, $elemMatch, $all
 
-    - Update: $set $unset $addToSet $push $pop $pull $pullAll
+    - Update: $set $unset $addToSet $push $pop $pull $pullAll $inc $rename $min
 
     - Delete: $remove $deleteOne
 
@@ -299,7 +299,17 @@
               }
           )
 
-  08. $updateMany => all item update
+  08. $inc => Increments the value of the field by the specified amount
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $inc:  { age: 17 }
+              }
+          )
+
+  09. $updateMany => all item update
 
         db.practice
           .updateMany(
@@ -308,6 +318,35 @@
                   $pullAll:  { interests: ["Travelling", "Swimming"] }
               }
           )
+
+        db.practice
+          .updateMany(
+              { },
+              {
+                  $rename:  { "favoutiteColor": "favouriteColor" }
+              }
+          )
+
+        db.practice
+          .updateMany(
+              { },
+              {
+                  $set:  { minAge: 1 }  // modify property age to minAge
+              }
+          )
+
+        
+        $min => Only updates the field if the specified value is less than the existing field value.
+        
+        db.practice
+          .updateMany(
+              { },
+              {
+                  $min:  { minAge: 15 }
+              }
+          )
+        
+        
 
 */
 
