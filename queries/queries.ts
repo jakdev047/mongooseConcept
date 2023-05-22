@@ -196,7 +196,7 @@
   Update
   ========
 
-  01. $updateOne
+  01. $set => Sets the value of a field in a document.
 
         db.practice
           .updateOne(
@@ -206,7 +206,7 @@
               }
           )
 
-  02. $addToSet
+  02. $addToSet => add elements to an array only if they do not already exist in the set
 
         db.practice
           .updateOne(
@@ -224,13 +224,63 @@
               }
           )
 
-  03. $push
+  03. $push => Adds an item to an array.
 
         db.practice
           .updateOne(
               { _id : ObjectId("6406ad65fc13ae5a400000c7") },
               {
                   $push:  { interests: {$each: ["Travelling", "Swimming"] } }
+              }
+          )
+
+  04. $unset => Removes the specified field from a document.
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  // $unset:  { occupation: 1 }
+                  $unset:  { occupation: "" }
+              }
+          )
+  
+  05. $pop => Removes the first or last item of an array.
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $pop:  { languages: 1 } // 1 = last remove & -1 = first remove
+              }
+          )
+  06. $pull => Removes all array elements that match a specified query.
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $pull:  { friends: "Rasel Ahmed" }
+              }
+          )
+
+  07. $pullAll => Removes all matching values from an array.
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $pullAll:  { interests: ["Travelling", "Swimming"] }
+              }
+          )
+
+  08. $updateMany => all item update
+
+        db.practice
+          .updateMany(
+              { },
+              {
+                  $pullAll:  { interests: ["Travelling", "Swimming"] }
               }
           )
 
