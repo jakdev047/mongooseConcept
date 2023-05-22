@@ -16,8 +16,33 @@
 
     - Array: $size, $elemMatch, $all
 
+    - Update: $set $unset $addToSet $push $pop $pull $pullAll
+
+    - Delete: $remove $deleteOne
+
   same property check => explicit
   others property check => implicit
+*/
+
+/*
+  Collection
+  =============
+
+  01. createCollection  => Create a collection
+
+        db.createCollection("testCollection")
+
+  02. insertOne  => insert a data in collection
+
+        db.test.insertOne({name: "Jubayer"})
+
+  03. drop  => remove all data in collection
+
+        db.test.drop()
+
+  04. dropCollection  => remove a collection
+
+        db.dropCollection("test")
 */
 
 /*
@@ -284,6 +309,18 @@
               }
           )
 
+*/
+
+/*
+  Delete
+  ==========
+
+  01. $deleteOne / $remove => Removes a single document from a collection
+
+        db.practice
+          .deleteOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") }
+          )
 */
 
 /*
