@@ -193,6 +193,48 @@
 */
 
 /*
+  Update
+  ========
+
+  01. $updateOne
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $set: { country: "Bangladesh"}
+              }
+          )
+
+  01. $addToSet
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $addToSet:  { interests: "Cooking"}
+              }
+          )
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $addToSet:  { interests: {$each: ["Travelling", "Swimming"] } }
+              }
+          )
+
+        db.practice
+          .updateOne(
+              { _id : ObjectId("6406ad65fc13ae5a400000c7") },
+              {
+                  $push:  { interests: {$each: ["Travelling", "Swimming"] } }
+              }
+          )
+
+*/
+
+/*
   formate => alt shift f
 
   run => ctrl Enter
