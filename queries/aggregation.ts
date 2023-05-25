@@ -43,8 +43,8 @@
 
 /*
 
-  Group
-  =======
+  Others
+  ========
 
     01. basic group
 
@@ -147,6 +147,32 @@
                     ]
                 }
             }        
+        ])
+    
+    06. Join 
+        
+        db.practice.aggregate([
+            // stage $match
+            {$match: { email : "omirfin2@i2i.jp" } },
+            
+            // stage $lookup
+            {
+                $lookup: {
+                    from: "additionalInfo",
+                    localField: "email",
+                    foreignField: "userEmail",
+                    as: "additionalInformation"
+                }
+            },
+            
+            //statge $project
+            {
+                $project: {
+                    name: 1,
+                    additionalInformation: 1
+                }
+            }
+            
         ])
 
 */
