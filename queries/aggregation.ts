@@ -56,4 +56,25 @@
       } } }
 
   ])
+
+  // find < group < specific view column < sort < limit
+  db.practice.aggregate([
+      // stage $match 
+      { $match: { age: { $gte: 18 } } },
+      
+      // stage $group ( get distict wise data )
+      { $group: { 
+          _id: "$salary",
+          noOfPersons: { $sum: 1 }
+      } },
+      
+      // statge $project
+      { $project: { noOfPersons: 1, salary: "$_id" } },
+      
+      // stage $sort
+      {$sort: {$id: 1} },
+      
+      // statge $limit
+      { $limit: 5 }
+  ])
 */
